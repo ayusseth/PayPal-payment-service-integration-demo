@@ -9,6 +9,7 @@ import org.springframework.web.client.RestClient;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class HttpServiceEngine {
     private final RestClient restClient;
 
@@ -28,6 +29,6 @@ public class HttpServiceEngine {
                 .retrieve()
                 .toEntity(String.class);
         // Simulate HTTP request logic here
-        return "response";
+        return response.getBody();
     }
 }
