@@ -1,5 +1,6 @@
 package com.ayush.demo_paypal.http;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
