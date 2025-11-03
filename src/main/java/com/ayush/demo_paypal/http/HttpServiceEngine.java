@@ -13,6 +13,16 @@ public class HttpServiceEngine {
     String getAuthUrl="https://api-m.sandbox.paypal.com/v1/oauth2/token";
     public String makeRequest() {
         log.info("Making HTTP request");
+
+        ResponseEntity<String> response=restClient.method(HttpMethod.POST)
+                .uri(getAuthUrl)
+                .headers(headers -> {
+                    headers.setBasicAuth(client_secret,client_ID);
+                    headers.setContentType(org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED);
+                })
+                .body("grant_type=client_credentials")
+                .retrieve()
+                .toEntity(String.class);
         // Simulate HTTP request logic here
         return "response";
     }
